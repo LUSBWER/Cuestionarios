@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionarios Redes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>Cuestionarios Redes</h1>
+            <div class="progress-container">
+                <label for="global-progress">Progreso Total del Curso</label>
+                <progress id="global-progress" value="0" max="100"></progress>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <div id="module-selection-container">
+                <h2>Selecciona un Módulo</h2>
+                <!-- Los módulos se generarán aquí -->
+            </div>
+
+            <div id="module-view-container" class="hidden">
+                <h2 id="module-title"></h2>
+                
+                <div class="progress-container">
+                    <label for="module-progress">Progreso del Módulo</label>
+                    <progress id="module-progress" value="0" max="100"></progress>
+                </div>
+
+                <div id="module-intro-container">
+                    <h3>Resumen del Módulo</h3>
+                    <p id="module-summary"></p>
+                    <h3>Reglas de Respuesta</h3>
+                    <ul id="rules-list">
+                        <li><b>Respuestas de palabra(s) cortas:</b> escribir sin tildes. Mayúsculas o minúsculas no afectan.</li>
+                        <li><b>Preguntas con varias respuestas correctas:</b> escribir las respuestas separadas por punto y coma (;) sin espacios.</li>
+                        <li><b>Preguntas de opción múltiple:</b> nunca marcar “TODAS” como correcta. Si se hace, esa pregunta tendrá valor 0 puntos.</li>
+                        <li><b>Preguntas de direccionamiento IP:</b> escribir direcciones separadas por punto y coma (;) sin espacios.</li>
+                        <li><b>Preguntas de Verdadero/Falso:</b> mayúsculas o minúsculas no afectan. Se aceptan v, f, verdadero, falso.</li>
+                    </ul>
+                    <button id="start-quiz-btn">Comenzar Test</button>
+                    <button id="review-module-btn">Ver Corrección</button>
+                </div>
+
+                <div id="quiz-container" class="hidden">
+                    <!-- Las preguntas se cargarán aquí -->
+                </div>
+
+                <div id="results-container" class="hidden">
+                    <h3>Resultados del Módulo</h3>
+                    <p id="result-score"></p>
+                    <p id="result-message"></p>
+                    <div id="correct-answers-container">
+                        <h4>Respuestas Correctas</h4>
+                        <!-- Las respuestas correctas se mostrarán aquí -->
+                    </div>
+                    <button id="next-module-btn" class="hidden">Siguiente Módulo</button>
+                    <button id="retry-module-btn" class="hidden">Reintentar Módulo</button>
+                    <button id="back-to-menu-btn">Volver al Menú</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
