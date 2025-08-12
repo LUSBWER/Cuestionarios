@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-bg-color: #1a1d24;
+    --glass-bg-color: rgba(42, 48, 60, 0.7);
+    --primary-text-color: #f0f0f5;
+    --secondary-text-color: #a0a0b0;
+    --accent-color-1: #00aaff;
+    --accent-color-2: #00ffaa;
+    --correct-color: #4caf50;
+    --incorrect-color: #ef5350;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-text-color);
+    background: linear-gradient(-45deg, #121417, #1a1d24, #2a2d34, #1a1d24);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+    line-height: 1.7;
+    padding: 20px;
+}
+
+#app-container {
+    max-width: 900px;
+    margin: auto;
+    background: var(--glass-bg-color);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 2.5em;
+    background: -webkit-linear-gradient(45deg, var(--accent-color-1), var(--accent-color-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.progress-container label {
+    font-size: 0.9em;
+    font-weight: 300;
+    color: var(--secondary-text-color);
+}
+
+progress {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: none;
+    background-color: rgba(0,0,0,0.3);
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgba(0,0,0,0.3);
+}
+
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2));
+    transition: width 0.4s ease-in-out;
+}
+
+main {
+    padding: 25px;
+}
+
+.hidden { display: none !important; }
+
+#module-selection-container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+#module-selection-container h2, #module-view-container h2 {
+    font-weight: 600;
+    color: var(--primary-text-color);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--accent-color-1);
+    padding-bottom: 10px;
+}
+
+#module-intro-container, .quiz-question, #results-container {
+    background: rgba(0,0,0,0.2);
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    animation: fadeIn 0.5s ease-out;
+}
+
+#rules-list {
+    list-style-position: inside;
+    padding-left: 0;
+    margin-top: 15px;
+    color: var(--secondary-text-color);
+    font-size: 0.9em;
+}
+
+#rules-list li { margin-bottom: 10px; }
+
+button {
+    background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2));
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 170, 255, 0.2);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 255, 170, 0.3);
+}
+
+button:disabled {
+    background: #555;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.quiz-question {
+    border-left: 4px solid var(--accent-color-1);
+}
+
+.quiz-question p { font-size: 1.1em; margin-bottom: 15px; }
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: rgba(0,0,0,0.3);
+    color: var(--primary-text-color);
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-color-2);
+    box-shadow: 0 0 10px rgba(0, 255, 170, 0.3);
+}
+
+.radio-option {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.radio-option:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.radio-option input[type="radio"] { margin-right: 12px; }
+
+#result-score {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.correct { color: var(--correct-color); }
+.incorrect { color: var(--incorrect-color); }
+
+#correct-answers-container { margin-top: 25px; }
+
+.correct-answer-item {
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid;
+}
+
+.correct-answer-item.is-correct { border-left-color: var(--correct-color); }
+.correct-answer-item.is-incorrect { border-left-color: var(--incorrect-color); }
+
+.correct-answer-item p { font-weight: 400; }
+.correct-answer-item .user-answer {
+    font-weight: 600;
+}
+.correct-answer-item .justification {
+    font-style: italic;
+    font-size: 0.9em;
+    color: var(--secondary-text-color);
+    margin-top: 8px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 8px;
+}
+
+#retry-module-btn { background: linear-gradient(90deg, #ffb74d, #ff7043); }
+#back-to-menu-btn, #review-module-btn { background: linear-gradient(90deg, #78909c, #546e7a); }
+#review-module-btn { margin-left: 15px; }
+
+#module-selection-container button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+    padding: 15px;
+    background: var(--glass-bg-color);
+    border: 1px solid var(--border-color);
+}
+
+#module-selection-container button.completed-passed {
+    background: linear-gradient(90deg, rgba(76, 175, 80, 0.5), rgba(0, 255, 170, 0.5));
+    border-color: var(--correct-color);
+}
+
+#module-selection-container button.completed-failed {
+    background: linear-gradient(90deg, rgba(239, 83, 80, 0.5), rgba(255, 138, 101, 0.5));
+    border-color: var(--incorrect-color);
+}
